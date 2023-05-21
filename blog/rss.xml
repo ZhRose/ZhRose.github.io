@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>Mr zhang Blog Blog</title>
         <link>https://ZhRose.github.io/blog</link>
@@ -13,6 +13,9 @@
             <link>https://ZhRose.github.io/blog/source</link>
             <guid>https://ZhRose.github.io/blog/source</guid>
             <pubDate>Thu, 26 Aug 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[生活中每件事都是艰难的，这种感觉大概是从二月底开始的，我开始对毕业产生压力，想到即将毕业的自己一片空白]]></description>
+            <content:encoded><![CDATA[<blockquote><p>生活中每件事都是艰难的，这种感觉大概是从二月底开始的，我开始对毕业产生压力，想到即将毕业的自己一片空白
+，心里难免会有些慌张，于是便开始了自己的自学之路,这中感觉就像是和</p></blockquote>]]></content:encoded>
         </item>
     </channel>
 </rss>
