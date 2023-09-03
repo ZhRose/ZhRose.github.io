@@ -13,9 +13,24 @@
             <link>https://ZhRose.github.io/blog/source</link>
             <guid>https://ZhRose.github.io/blog/source</guid>
             <pubDate>Thu, 26 Aug 2021 00:00:00 GMT</pubDate>
-            <description><![CDATA[生活中每件事都是艰难的，这种感觉大概是从二月底开始的，我开始对毕业产生压力，想到即将毕业的自己一片空白]]></description>
-            <content:encoded><![CDATA[<blockquote><p>生活中每件事都是艰难的，这种感觉大概是从二月底开始的，我开始对毕业产生压力，想到即将毕业的自己一片空白
-，心里难免会有些慌张，于是便开始了自己的自学之路,这中感觉就像是和</p></blockquote>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[项目]]></title>
+            <link>https://ZhRose.github.io/blog/课程在线学习</link>
+            <guid>https://ZhRose.github.io/blog/课程在线学习</guid>
+            <pubDate>Thu, 26 Aug 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[该项目是一款基于微信公众号B2C模式的在线学习平台，该项目包含两大部分：后台管理系统和公众号服务，平台会定期推出直播或点播课程，为学员构建一个全方位的在线学习平台。]]></description>
+            <content:encoded><![CDATA[<p>该项目是一款基于微信公众号B2C模式的在线学习平台，该项目包含两大部分：后台管理系统和公众号服务，平台会定期推出直播或点播课程，为学员构建一个全方位的在线学习平台。</p><h4 class="anchor anchorWithStickyNavbar_LWe7" id="讲师管理">讲师管理<a href="#讲师管理" class="hash-link" aria-label="讲师管理的直接链接" title="讲师管理的直接链接">​</a></h4><p>具体功能：</p><ol><li>查询所有:无条件查询</li><li>删除:数据库中添加一段字段为deleted，实际是通过update进行的逻辑删除</li><li>分页条件查询:使用的是mp中的page方法，再添加一定的逻辑判断语句实现的后端分页效果</li><li>添加:需要teacher做为参数</li><li>修改:需要id来确定讲师</li><li>批量删除:需要传入一个id数组</li><li>头像上传:整合腾讯云存储服务进行上传,需要一个file参数</li></ol><p>整合腾讯云存储服务(具体参考腾讯云存储服务官方文档 <a href="https://cloud.tencent.com/document/product/436/10199" target="_blank" rel="noopener noreferrer">https://cloud.tencent.com/document/product/436/10199</a>)
+1.打开腾讯云官网，注册账号，实名认证
+2.找到腾讯云存储服务，进行开通
+3.进入到存储服务控制台
+4.创建存储桶bucket,在控制台完成上传测试
+5.创建当前腾讯云账号的密钥</p><h4 class="anchor anchorWithStickyNavbar_LWe7" id="课程分类管理">课程分类管理<a href="#课程分类管理" class="hash-link" aria-label="课程分类管理的直接链接" title="课程分类管理的直接链接">​</a></h4><ol><li>课程分类列表:树形显示,判断从数据库中每条数据是否含有parentId</li><li>课程分类导出：导出到excel，使用的技术为EasyExcel</li><li>课程分类导入:把excel表导入到数据库</li></ol><p>EasyExcel：整个excel称之为workbook,其中每个workbook内部含有多个sheet,每个sheet中含有行，列以及单元格
+写操作：导入easyExcel依赖，创建实体类(和excel对应，设置excel表头)，通过调用其中的方法
+读操作：导入依赖，创建excel实体对应类并设置对应关系，创建监听器进行一行一行解析过程，调用其中的读方法</p><h4 class="anchor anchorWithStickyNavbar_LWe7" id="点播课程管理">点播课程管理<a href="#点播课程管理" class="hash-link" aria-label="点播课程管理的直接链接" title="点播课程管理的直接链接">​</a></h4><ol><li>添加视频课程(管理员)：填写课程基本信息(包括课程名称，讲师，描述)-创建课程大纲(章节，小节，课程视频)-发布课程(显示课程信息确认后最终发布)
+<img loading="lazy" alt="Alt text" src="/assets/images/image-0db87f3d67a62b3cca2af770b475f7e6.png" width="1240" height="456" class="img_ev3q">
+视频的上传以及删除，通过腾讯云视屏点播服务进行开通</li></ol><ul><li>搜索云点播，进行服务开通</li><li>传入腾讯云中的id,key</li><li>创建任务流，设置视频文件地址，最后对业务方面进行异常处理</li><li>返回fileId</li></ul><p><em>删除则只需要给出fileId参数即可（具体请看<a href="https://cloud.tencent.com/document/product/266/8757" target="_blank" rel="noopener noreferrer">https://cloud.tencent.com/document/product/266/8757</a>）</em></p><h4 class="anchor anchorWithStickyNavbar_LWe7" id="优惠卷模块">优惠卷模块<a href="#优惠卷模块" class="hash-link" aria-label="优惠卷模块的直接链接" title="优惠卷模块的直接链接">​</a></h4><ol><li>优惠卷的crud</li><li>获取已经使用优惠卷列表，有user_id和其他信息，比如用户名称，手机号等(需要通过远程调用Fegin的方式)</li></ol><h4 class="anchor anchorWithStickyNavbar_LWe7" id="公众号菜单管理">公众号菜单管理<a href="#公众号菜单管理" class="hash-link" aria-label="公众号菜单管理的直接链接" title="公众号菜单管理的直接链接">​</a></h4><p>功能：</p><ol><li>一级和二级菜单的分类</li><li>菜单的增删改差</li><li>同步到公众号中（获取id,key）</li><li>公众号消息-普通消息</li><li>公众号-模板消息（需要模板id,以及openid）</li><li>公众号授权（微信id，密钥,授权回调获取用户信息接口地址）</li></ol><p>如何同步微信公众号菜单部分:</p><ul><li>调用微信接口，获取access_token</li><li>拿着access-token调用微信接口，公众号菜单同步
+具体访问：<a href="https://developers.weixin.qq.com/doc/offiaccount/Getting_Started/Overview.html" target="_blank" rel="noopener noreferrer">https://developers.weixin.qq.com/doc/offiaccount/Getting_Started/Overview.html</a></li></ul><p>如何配置公众号消息校验部分：</p><ul><li>填写接口配置信息，填写与你后台controller对应的url</li><li>编写接口，获取微信传过来的几个参数，返回随机字符串  get请求</li><li>接收微信返回消息，消息格式是xml  post请求 (需要判断消息的格式，以及返回对应的格式)</li></ul><p>如何完成支付部分：</p><ul><li>先通过订单获取userId，再根据userId拿到openId</li><li>拿到openid后，通过httpclient调用微信支付接口</li><li>拿到对应的参数以及返回跳转的地址</li></ul>]]></content:encoded>
         </item>
     </channel>
 </rss>
